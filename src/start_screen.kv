@@ -1,0 +1,166 @@
+#:import os os
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import StartScreen src.start_screen.StartScreen
+
+<StyleLabel@MDLabel>
+    size_hint_y: None
+    height: self.texture_size[1]
+    theme_text_color: "Primary"
+
+<StyleItemCheck@MDBoxLayout>
+    group: ""
+    text: ""
+    _parent: None
+    active: False
+    adaptive_height: True
+
+    MDCheckbox:
+        group: root.group
+        allow_no_selection: False
+        active: root.active
+        size_hint: None, None
+        pos_hint: {"center_y": .5}
+        on_active:
+            if root._parent: root._parent.checkbox(app, root.text, self.active)
+
+    StyleLabel:
+        text: root.text
+        pos_hint: {"center_y": .5}
+
+<StartScreen>
+
+    BoxLayout:
+        spacing: "10dp"
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "AWAD TFlite ALL IN ONE" + os.environ["VERSION"]
+
+        ScrollView:
+
+            MDGridLayout:
+                adaptive_height: True
+                cols: 1
+                padding: "10dp"
+                spacing: "10dp"
+
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "Choose model folder location"
+
+                StyleItemCheck:
+                    group: "notch"
+                    id: internal_data
+                    text: "Internal data folder"
+                    active: True
+                    _parent: root
+
+                StyleItemCheck:
+                    group: "notch"
+                    id: external_data
+                    text: "SDcard data folder(/sdcard/AWAD_tflite)"
+                    _parent: root
+
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "1. Choose Case:"
+
+                MDLabel:
+                    size_hint_y: None
+                    id: caseid
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "No case choosed"
+
+                MDRaisedButton:
+                    padding: "10dp"
+                    text: "Choose"
+                    opposite_colors: True
+                    pos_hint: {"center_x": .5}
+                    on_release: root.read_case_folder()
+
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "2. Choose TFlite model:"
+
+                MDLabel:
+                    size_hint_y: None
+                    id: takeid
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "No TFlite model choosed"
+
+                MDRaisedButton:
+                    padding: "10dp"
+                    text: "Choose"
+                    opposite_colors: True
+                    pos_hint: {"center_x": .5}
+                    on_release: root.read_models_folder()
+
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "3. Choose Thread Number:"
+
+                MDDropDownItem:
+                    padding: "10dp"
+                    text: "8 thread"
+                    id: threadid
+                    opposite_colors: True
+                    pos_hint: {"center_x": .5}
+                    on_release: root.choose_num_thread()
+
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "Action 1: Open Pleth Viewer For One Case"
+
+                MDRaisedButton:
+                    padding: "10dp"
+                    text: "Open"
+                    opposite_colors: True
+                    pos_hint: {"center_x": .5}
+                    on_release: root.parent.current = "pleth_viewer"
+
+                
+                MDSeparator:
+
+                StyleLabel:
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Primary"
+                    text: "Action 2: Run Full Validation Test"
+
+                MDRaisedButton:
+                    padding: "10dp"
+                    text: "Run"
+                    opposite_colors: True
+                    pos_hint: {"center_x": .5}
+                    on_release: root.parent.current = "full_val"
+                
+
+
+
+
+
+
+
+

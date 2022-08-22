@@ -1,0 +1,19 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import StartScreen src.start_screen.StartScreen
+#:import PlethPlot src.pleth_viewer.PlethPlot
+#:import FullVal src.full_val.FullVal
+
+
+
+ScreenManager:
+    transition: FadeTransition()
+
+    StartScreen:
+        name: "start_screen"
+
+    PlethPlot:
+        name: "pleth_viewer"
+
+    FullVal:
+        name: "full_val"
+    

@@ -1,0 +1,120 @@
+#:import utils kivy.utils
+
+<PlethPlot>:
+
+    on_enter:
+        self.start_plot()
+
+    MDBoxLayout:
+        size_hint: 1, 1
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            id: topbar
+            title: "Initing Please Wait"
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+            elevation: 10
+
+
+        ScrollView:
+            padding: 10
+            id: view
+            do_scroll_x: True
+            do_scroll_y: False
+            orientation: 'vertical'
+            size_hint: 1, 0.5
+            valign: 'middle'
+            bar_width: 4
+            bar_color: 1, 1, 1, 1
+            bar_inactive_color: 1, 1, 1, 0.5
+            scroll_type: ['content']
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint: None, 1
+                width: view.width*root.zoom
+                MDBoxLayout:
+                    id: modulation2
+                    size_hint_x: 1
+                    size_hint_y: 1
+
+        ScrollView:
+            padding: 10
+            id: view2
+            do_scroll_x: True
+            do_scroll_y: False
+            orientation: 'vertical'
+            size_hint: 1, 0.5
+            valign: 'middle'
+            bar_width: 4
+            bar_color: 1, 1, 1, 1
+            bar_inactive_color: 1, 1, 1, 0.5
+            scroll_type: ['content']
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint: None, 1
+                width: view.width*root.zoom
+                MDBoxLayout:
+                    id: modulation
+                    size_hint_x: 1
+                    size_hint_y: 1
+
+        MDList:
+            id: ml
+
+            StyleLabel:
+                id: awad_status
+                size_hint_y: None
+                theme_text_color: "Primary"
+                text: "Action 2: Run Full Validation Test"
+
+            OneLineAvatarIconListItem:
+                text: "     Horizontal Zoom: " + str(int(root.zoom)) + 'x'
+                IconLeftWidget:
+                    icon: "minus"
+                    on_release: root.update_zoom('-')
+
+                IconRightWidget:
+                    icon: "plus"
+                    on_release: root.update_zoom('+')
+
+            OneLineAvatarIconListItem:
+                text: "     Upper Max: " + str(int(root.ymax))
+                IconLeftWidget:
+                    icon: "minus"
+                    on_release: root.update_ymax('-')
+
+                IconRightWidget:
+                    icon: "plus"
+                    on_release: root.update_ymax('+') 
+
+            OneLineAvatarIconListItem:
+                text: "     Lower Min: " + str(int(root.ymin))
+                IconLeftWidget:
+                    icon: "minus"
+                    on_release: root.update_ymin('-')
+
+                IconRightWidget:
+                    icon: "plus"
+                    on_release: root.update_ymin('+') 
+
+            OneLineAvatarIconListItem:
+                text: "     Original range: " + str(int(root.x_ori_min)) + " - " + str(int(root.x_ori_min + root.samples))
+                IconLeftWidget:
+                    icon: "minus"
+                    on_release: root.update_x_ori('-')
+
+                IconRightWidget:
+                    icon: "plus"
+                    on_release: root.update_x_ori('+') 
+
+            OneLineAvatarIconListItem:
+                text: "     AWAD range: " + str(int(root.x_awad_min)) + " - " + str(int(root.x_awad_min + root.samples))
+                IconLeftWidget:
+                    icon: "minus"
+                    on_release: root.update_x_awad('-')
+
+                IconRightWidget:
+                    icon: "plus"
+                    on_release: root.update_x_awad('+') 
