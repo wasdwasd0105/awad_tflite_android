@@ -86,7 +86,7 @@ class PlethPlot(MDScreen):
 
     def plot_graph_pleth(self):
         self.graph_pleth = Graph(
-                           xlabel='Time', ylabel='Pleth',
+                           xlabel='', ylabel='Pleth',
                            y_ticks_major=2000,
                            x_ticks_major=128,
                            label_options = {'color': [0, 0, 0, 0.7], 'bold': True},
@@ -124,7 +124,7 @@ class PlethPlot(MDScreen):
 
     def plot_graph1(self):
         self.graph = Graph(
-                           xlabel='Time', ylabel='Removed Awad',
+                           xlabel='', ylabel='Clean Pleth',
                            y_ticks_major=2000,
                            x_ticks_major=128,
                            label_options = {'color': [0, 0, 0, 0.7], 'bold': True},
