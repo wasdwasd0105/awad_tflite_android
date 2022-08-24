@@ -9,7 +9,7 @@ from kivymd.uix.button import MDRectangleFlatButton
 from kivy.core.window import Window
 from kivy.utils import platform
 
-os.environ["VERSION"] = " Ver 1.3"
+os.environ["VERSION"] = " Ver 1.31"
 
 if getattr(sys, "frozen", False):  # bundle mode with PyInstaller
     os.environ["ROOT_DIR"] = sys._MEIPASS
