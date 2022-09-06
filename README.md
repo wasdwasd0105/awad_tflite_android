@@ -1,5 +1,7 @@
 # AWAD Application Demo
 
+<img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_structure.jpg"/>
+
 AWAD_Tflite is an application that can remove artifact wareform using pre-trained ML model. It uses TF-lite for the ML interface and can run on Android mobile platform.
 
 This application is made by Kivy, and it is an open-source framework that can directly run python programs on Android Phones. The benefit of the framework is that it is compatible with most of the prototype code written in python, and some components, such as the data loader, can be natively run on Android phones with slight modification. 
@@ -8,7 +10,7 @@ Like most applications, this app is divided into front and back end. The front i
 
 The back end is the place to handle case data and return the predicted result. First, it will load the user-selected case data into the data loader, the data loader will divide and sort the data into the appropriate format to fit the ML model. Then the ML program will be run to get the prediction. The result will be stored, and after finishing predicting all the parts, the predicted result will be transferred to the front end, and the front-end UI components will plot the graph based on the results.
 
-<img src="https://raw.githubusercontent.com/wasdwasd0105/awad_tflite_android/master/kivy/data/logo/kivy-icon-256.png"/>
+<img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_structure.jpg"/>
 
 
 ## Tensorflow lite and model convert
@@ -19,7 +21,7 @@ The model is trained with Pytorch, and to run the model on the TensorFlow Lite r
 
 The overall procedure is Pytorch -> ONNX -> TensorFlow -> TensorFlow Lite. First, we need to convert PyTorch to ONNX format. ONNX, Open Neural Network Exchange, is “an open format built to represent machine learning models.” It can convert different kinds of ML models into one uniform standard one. Second, export the ONNX format to TensorFlow. Third, convert TensorFlow to TensorFlow lite. TensorFlow can be directly converted to TensorFlow lite by the built-in TFLiteConverter on the TensorFlow library.
 
-<img src="https://raw.githubusercontent.com/wasdwasd0105/awad_tflite_android/master/kivy/data/logo/kivy-icon-256.png"/>
+<img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_model_convert.jpg"/>
 
 Installion
 ---------------
