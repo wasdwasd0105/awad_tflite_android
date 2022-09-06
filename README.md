@@ -1,6 +1,6 @@
-# AWAD Application Demo
+# AWAD Android Application
 
-<img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_structure.jpg"/>
+<img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_demo.png"/>
 
 AWAD_Tflite is an application that can remove artifact wareform using pre-trained ML model. It uses TF-lite for the ML interface and can run on Android mobile platform.
 
