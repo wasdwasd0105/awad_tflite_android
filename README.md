@@ -23,7 +23,7 @@ The overall procedure is Pytorch -> ONNX -> TensorFlow -> TensorFlow Lite. First
 
 <img src="https://github.com/wasdwasd0105/awad_tflite_android/raw/master/pics/AWAD_model_convert.jpg"/>
 
-Installion
+Compiling from sorce
 ---------------
 1. download soource code
     ```
@@ -46,6 +46,14 @@ Installion
     ```
     buildozer android deploy run logcat
     ```
+    
+Installation
+---------------
+
+1. download from release page or compile the code
+2. transmit the apk package and allow sideload
+   https://www.howtogeek.com/313433/how-to-sideload-apps-on-android/
+
 
 Dependency
 ---------------
